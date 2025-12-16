@@ -79,6 +79,14 @@ class DiscordNotificationBot:
         if len(commits) > 5:
             message += f"\n... y {len(commits) - 5} commits más"
         
+        # Construir URL de comparación manualmente
+        if 'before' in data and 'after' in data:
+            project_url = data['project']['web_url']
+            before = data['before']
+            after = data['after']
+            compare_url = f"{project_url}/-/compare/{before}...{after}"
+            message += f"\n🔗 [Ver cambios]({compare_url})"
+        
         return message
     
     async def start(self):
