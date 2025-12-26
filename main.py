@@ -3,7 +3,9 @@ from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
 import asyncio
 from typing import Optional
-from bot import discord_bot
+from bot import DiscordNotificationBot
+
+discord_bot = DiscordNotificationBot()
 
 # Lifespan para manejar el inicio y cierre del bot
 @asynccontextmanager
