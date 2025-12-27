@@ -10,6 +10,11 @@ load_dotenv()
 
 class DiscordNotificationBot:
     __bot: Bot
+
+    @property
+    def bot(self) -> Bot:
+        return self.__bot
+
     def __init__(self):
         intents = discord.Intents.default()
         intents.guilds = True
